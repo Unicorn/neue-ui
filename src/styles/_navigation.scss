@@ -1,0 +1,320 @@
+@mixin neue\_navigation {
+
+  .navigation.hamburger {
+    cursor: pointer;
+    display: block;
+    height: 6rem;
+    opacity: 0.5;
+    position: fixed;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+    width: 6rem;
+    z-index: 999;
+
+    span {
+      background: #fff;
+      border-radius: 9px;
+      display: block;
+      height: 2px;
+      left: 30%;
+      opacity: 1;
+      position: absolute;
+      right: 30%;
+      transform: rotate(0deg);
+      transition: transform 0.25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 40%;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 50%;
+      }
+
+      &:nth-child(4) {
+        top: 60%;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.active span {
+      &:nth-child(1) {
+        width: 0%;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        width: 0%;
+      }
+    }
+  }
+
+  .toolbar.navigation {
+    min-height: $h500;
+    
+    .row {
+      @extend .middle-xs;
+    }
+
+    nav {
+      display: flex;
+
+      a {
+        border-bottom: 2px solid transparent;
+        color: #fff;
+        font-size: $f500;
+        padding: #{$s100 + $s500} 0 $s500;
+
+        + a {
+          margin-left: $s700;
+        }
+      }
+    }
+    
+    .logo {
+      fill: #fff;
+      height: $h300;
+      width: $h300;
+    }
+
+    a.active {
+      border-bottom: 2px solid #fff;
+    }
+
+    .left {
+      @extend .col-xs-21;
+      @extend .col-sm-5;
+    } 
+    
+    .right {
+      @extend .col-xs-21;
+      @extend .col-sm-16;
+
+      nav {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .drawer.navigation {
+    animation: drawerExpand .8s ease-in-out;
+    border-right: .6rem solid $color-background;
+    left: 0;
+    position: relative;
+    width: $drawer-expanded-width; 
+    z-index: 20;
+
+    @include breakpoint(sm, down) {
+      height: 100vh;
+      // position: fixed;
+      // width: 90%;
+    }  
+
+    .toggle {
+      float: right;
+      height: 144px;
+      margin: 0 -2.55rem 0 0;
+      width: $drawer-collapsed-width;
+
+      .arrow_svg__cutout {
+        fill: $color-background;
+      }
+
+      .arrow_svg__circle {
+        transform: scale(.8);
+        transform-origin: center;
+        transition: transform .25s ease-in-out;
+      }
+
+      .arrow_svg__arrow {
+        fill: $color-secondary-900;
+        transform: scale(.8);
+        transform-origin: 60% 50%;
+        transition: transform .25s ease-in-out;
+      }
+
+      #arrow_svg__a {
+        .arrow_svg__color1 {
+          stop-color: lighten($color-secondary-200, 5%);
+        }
+
+        .arrow_svg__color2 {
+          stop-color: lighten($color-secondary-400, 5%);
+        }
+      }
+
+      &:hover, &:focus {
+        outline: none;
+
+        .arrow_svg__circle, .arrow_svg__arrow {
+          transform: scale(.9);
+        }
+      }
+    }
+
+    .head {
+      align-items: center;
+      display: flex;
+      min-height: 8rem;
+      padding: $s500;
+
+      .logo {
+        height: $h800;
+        width: $h800;
+      }
+
+      .brand {
+        color: #fff;
+        padding: $s300 $s500;
+
+        strong, em {
+          display: block;
+          line-height: 1.5em;
+        }
+
+        strong {
+          font-family: $font-body;
+          font-size: $f500;
+        }
+
+        em {
+          font-size: $f100;
+          font-weight: 200;
+        }
+      }
+    }
+
+    .main {
+      clear: both;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .tab {
+      display: block;
+      
+      .link {
+        align-content: center;
+        border-left: 2px solid transparent;
+        color: #fff;
+        display: block;
+        font: 500 $f500 $font-display;
+        letter-spacing: .05em;
+        outline: none;
+        padding: $s500;
+        text-align: left;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background .25s ease-in-out;
+        width: 100%;
+
+        &:focus {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        svg {
+          display: none;
+          max-height: #{$drawer-collapsed-width / 2.5};
+          max-width: #{$drawer-collapsed-width / 2.5};
+          opacity: 0;
+          transition: all 1.5s;
+        }
+      }
+
+      &.active {
+        > button, > a {
+          background: radial-gradient(circle at 0%, rgba(255, 255, 255, 0.1) 50%, transparent);
+          border-color: $color-primary-100;
+        }
+
+        .active {
+          color: #fff;
+        }
+
+        .pane {
+          height: auto;
+          padding: $s300 0 0 $s500;
+          transform: scaleY(1);
+        }
+      }
+    }
+
+    .pane {
+      height: 0;
+      overflow: hidden;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .25s ease-in-out;
+
+      .link {
+        border: none;
+        border-bottom: 1px dashed transparent;
+        font-weight: 400;
+        font-size: $f400;
+        padding: $s400 $s500;
+        transition: border-color .25s ease-in-out;
+
+        &:hover {
+          border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        &.active {
+          font-weight: 600;
+        }
+      }
+    }
+
+    &.collapse {
+      animation: drawerCollapse .5s ease-in-out;
+      width: $drawer-collapsed-width;
+
+      .head {
+        .logo {
+          margin: 0 auto;
+          max-height: #{$drawer-collapsed-width / 2.25};
+          max-width: #{$drawer-collapsed-width / 2.25};
+        }
+
+        .brand {
+          display: none;
+        }
+      }
+
+      .toggle {
+        .arrow_svg__arrow {
+          transform: scale(0.8) scaleX(-1);
+        }
+      }
+
+      .tab {
+        .link {
+          span {
+            display: none;
+          }
+
+          svg {
+            display: block;
+            fill: #fff;
+            margin: 0 auto;
+            opacity: 1;
+          }
+        }
+      }
+
+      .pane {
+        display: none;
+      }
+    }
+  }
+}

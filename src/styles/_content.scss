@@ -1,0 +1,107 @@
+/**
+  CONTENT
+**/
+@mixin neue\_content {
+  .region {
+    display: block;
+    margin: $s700 0;
+    padding: $s600 0;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .header {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    &.with-media {
+      .inner {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+      }
+
+      figure {
+        padding: 0 $s700 0 0;
+      }
+    }
+
+    &.media-align-right {
+      .inner {
+        flex-direction: row-reverse;
+      }
+
+      figure {
+        padding: 0 0 0 $s700;
+      }
+    }
+
+    ul {
+      li {
+        &:before {
+          content: '-';
+          color: $color-primary-500;
+          display: inline-block;
+          width: 2rem;
+        }
+      }
+    }
+  }
+
+  .highlight {
+    @extend %highlight;
+    border-radius: $r500;
+    font-weight: 600;
+    margin: $s700 0;
+    padding: $s500 $s600;
+
+    &.with-actions {
+      align-items: center;
+      display: flex;
+    }
+
+    .actions {
+      align-items: center;
+      display: flex;
+      padding-right: $s700;
+    }
+  }
+
+  @include breakpoint(md, down) {
+    .region,
+    .region.media-align-right {
+      .inner {
+        flex-direction: column;
+      }
+
+      header {
+        flex-direction: column;
+        padding-bottom: $s600;
+        text-align: center;
+      }
+
+      figure {
+        margin: 0 auto $s500;
+        text-align: center;
+      }
+    }
+
+    .highlight {
+      flex-direction: column;
+      text-align: center;
+
+      .actions {
+        margin: 0;
+        padding: $s500 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+/**
+  STYLEGUIDE
+**/
+@mixin neue\_styleguide {
+  .styleguide {
+    padding: $s500 0 $s900;
+
+    .element {
+      background: $color-secondary-500;
+      font-family: $font-display;
+      font-size: $f500;
+      font-weight: 700;
+      color: $color-secondary-900;
+      min-height: 3rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+
+      + .element {
+        border-left: 5px solid $color-background;
+      }
+
+      &.large {
+        min-height: 6rem;   
+      }
+
+      .element {
+        background: $color-secondary-700;
+        border: 3px solid $color-secondary-500;
+        margin: 0;
+        padding: .5rem;
+      }
+    }
+
+    &.tiles {
+      .row {
+        margin: 0 0 $s700;
+      }
+
+      .tile {
+        padding-bottom: $s600;
+        padding-top: $s600;
+        text-align: center;
+      }
+    }
+
+    .layout.example {
+      aside.drawer, section.content {
+        min-height: 20rem;
+      }
+
+      .example {
+        padding: $s700;
+      }
+    }
+  }
+
+  .examples {
+
+    &.login {
+      max-width: 60rem;
+    }
+
+    .tile {
+      .header {
+        color: #fff;
+      }
+    }
+  }
+}

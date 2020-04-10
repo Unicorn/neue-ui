@@ -1,0 +1,233 @@
+@import '_mixins';
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900|Open+Sans+Condensed:300,700|Open+Sans:400,600,700,800&display=swap');
+
+$color-neutral-100: #CACFE7 !default;
+$color-neutral-200: #B0B5CE !default;
+$color-neutral-300: #9da2bc !default;
+$color-neutral-400: #9297AF !default;
+$color-neutral-500: #6F7593 !default;
+$color-neutral-600: #55596D !default;
+$color-neutral-700: #42465D !default;
+$color-neutral-800: #2D3148 !default;
+$color-neutral-900: #0F1224 !default;
+
+$color-primary-100: #C5BFFF !default;
+$color-primary-200: #A399F8 !default;
+$color-primary-300: #9489F4 !default;
+$color-primary-400: #887DF1 !default;
+$color-primary-500: #7568EB !default;
+$color-primary-600: #6B5FDE !default;
+$color-primary-700: #6053D5 !default;
+$color-primary-800: #574BC5 !default;
+$color-primary-900: #4A40A9 !default;
+
+$color-secondary-100: #ffe2bf !default;
+$color-secondary-200: #f8cd99 !default;
+$color-secondary-300: #f4c489 !default;
+$color-secondary-400: #f1bd7d !default;
+$color-secondary-500: #ebb068 !default;
+$color-secondary-600: #dea55f !default;
+$color-secondary-700: #d59a53 !default;
+$color-secondary-800: #c58e4b !default;
+$color-secondary-900: #a97a40 !default;
+
+$color-success-100: #BFFFC5 !default;
+$color-success-200: #99F8A3 !default;
+$color-success-300: #89F494 !default;
+$color-success-400: #7DF188 !default;
+$color-success-500: #68EB75 !default;
+$color-success-600: #5FDE6B !default;
+$color-success-700: #53D560 !default;
+$color-success-800: #4BC557 !default;
+$color-success-900: #40A94A !default;
+
+$color-warning-100: #ffe2bf !default;
+$color-warning-200: #f8cd99 !default;
+$color-warning-300: #f4c489 !default;
+$color-warning-400: #f1bd7d !default;
+$color-warning-500: #ebb068 !default;
+$color-warning-600: #dea55f !default;
+$color-warning-700: #d59a53 !default;
+$color-warning-800: #c58e4b !default;
+$color-warning-900: #a97a40 !default;
+
+$color-error-100: #FFC5BF !default;
+$color-error-200: #F8A399 !default;
+$color-error-300: #F49489 !default;
+$color-error-400: #F1887D !default;
+$color-error-500: #EB7568 !default;
+$color-error-600: #DE6B5F !default;
+$color-error-700: #D56053 !default;
+$color-error-800: #C5574B !default;
+$color-error-900: #A94A40 !default;
+
+$color-background: lighten($color-neutral-100, 12%) !default;
+$color-text: transparentize($color-neutral-900, .4);
+
+
+/**
+  SHADOWS
+**/
+$shadow-light: darken($color-background, 3%);
+$shadow-dark: darken($color-background, 6%);
+
+// box-shadow: -10px -10px 20px 0 #FAFBFF, 10px 10px 20px 0 #A6ABBD;
+$shadow-100: -2px -2px 4px $shadow-light, 2px 2px 4px $shadow-dark;
+$shadow-200: -4px -4px 6px $shadow-light, 4px 4px 6px $shadow-dark;
+$shadow-300: -6px -6px 8px $shadow-light, 6px 6px 8px $shadow-dark;
+$shadow-400: -8px -8px 10px $shadow-light, 8px 8px 10px $shadow-dark;
+$shadow-500: -10px -10px 12px $shadow-light, 10px 10px 12px $shadow-dark;
+$shadow-600: -12px -12px 14px $shadow-light, 12px 12px 14px $shadow-dark;
+$shadow-700: -14px -14px 16px $shadow-light, 14px 14px 16px $shadow-dark;
+$shadow-800: -16px -16px 18px $shadow-light, 16px 16px 18px $shadow-dark;
+$shadow-900: -18px -18px 20px $shadow-light, 18px 18px 20px $shadow-dark;
+
+/**
+  DRAWER
+**/
+$drawer-background: $color-primary-500;
+$drawer-collapsed-width: 5.5rem;
+$drawer-expanded-width: 25rem;
+
+$font-header: 'Nunito', serif !default;
+$font-body: 'Open Sans', sans-serif !default;
+$font-display: 'Open Sans Condensed', cursive !default;
+
+/**
+  LAYOUT
+
+  Define the column count, gutters, margins, and breakpoints
+  Fibonacci Sequence is ideal: 21 max with with 1, 2, 3, 5, 8, 13 columns.
+**/
+$breakpoints: (
+  sm: 440px,
+  md: 768px,
+  lg: 1024px
+);
+$grid-columns: 21 !default;
+$grid-gutter: 1.3rem !default;
+
+
+/**
+  BORDER RADIUS
+**/
+$r100: 2px;
+$r200: 3px;
+$r300: 4px;
+$r400: 5px;
+$r500: 6px;
+$r600: 8px;
+$r700: 12px;
+$r800: 15px;
+$r900: 18px;
+
+/**
+  FONTS
+**/
+$f100: 1.0rem;
+$f200: 1.2rem;
+$f300: 1.3rem;
+$f400: 1.4rem;
+$f500: 1.6rem;
+$f600: 1.8rem;
+$f700: 2.0rem;
+$f800: 2.2rem;
+$f900: 2.5rem;
+
+/**
+  HEIGHT
+
+  Used for Headers, Icons, etc
+**/ 
+$h100: 1.8rem !default;
+$h200: 2.0rem !default;
+$h300: 2.2rem !default;
+$h400: 2.4rem !default;
+$h500: 2.6rem !default;
+$h600: 2.8rem !default;
+$h700: 3.0rem !default;
+$h800: 3.2rem !default;
+$h900: 4.2rem !default;
+
+/** 
+  SPACE
+
+  Fibonacci sequence. Used for padding, margins
+**/ 
+$s100: 0.2rem !default;
+$s200: 0.3rem !default;
+$s300: 0.5rem !default;
+$s400: 0.8rem !default;
+$s500: 1.3rem !default;
+$s600: 2.1rem !default;
+$s700: 3.4rem !default;
+$s800: 6rem !default;
+$s900: 9rem !default;
+
+/**
+  GENERIC
+**/
+$link-color-normal: $color-secondary-500;
+$link-color-hover: $color-secondary-800;
+
+%container {
+  margin: 0 auto;
+  max-width: 100rem;
+  width: 100%;
+}
+
+/**
+  FORMS
+**/
+$form-input: (
+  border-width: 0 0 2px 0,
+  font: 400 $f500 $font-body,
+  margin: $s600 0,
+  padding: $s500,
+);
+
+$form-input-normal: (
+  background: lighten($color-neutral-100, 10%),
+  border-color: $color-neutral-700,
+  color: $color-neutral-500,
+);
+
+$form-spacing: $s700;
+
+%label {
+  display: block;
+  font-family: $font-header;
+  font-size: 1.6rem;
+  letter-spacing: .01rem;
+  padding-bottom: .7rem;
+}
+
+%input {
+  -webkit-appearance: none;
+  background-color: map-get($form-input-normal, background);
+  border-color: map-get($form-input-normal, border-color);
+  border-width: map-get($form-input, border-color);
+  border-radius: $r300;
+  color: map-get($form-input-normal, color);
+  font: map-get($form-input-normal, font);
+  height: 4.5rem;
+  margin: 0;
+  padding: map-get($form-input, padding);
+  text-align: left;
+  width: 100%;
+}
+
+%field {
+  margin: $form-spacing 0;
+  position: relative;
+  text-align: left;
+}
+
+/**
+  CONTENT
+**/
+%highlight {
+  background-color: $color-primary-100;
+  color: $color-primary-800;
+}

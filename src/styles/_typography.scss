@@ -1,0 +1,101 @@
+@mixin neue\_typography {
+  h1, h2, h3, h4, h5, h6, .header {
+    align-items: center;
+    display: block;
+    font-family: $font-header;
+    justify-content: space-between;
+    line-height: 1.5;
+    padding: 1em 0 .5em;
+  }
+
+  h1, .h900 {
+    font-size: $h900;
+  }
+
+  h2, .h800 {
+    font-size: $h800;
+  }
+
+  h3, .h700 {
+    font-size: $h700;
+  }
+
+  h4, .h600 {
+    font-size: $h600;
+  }
+
+  h5, .h500 {
+    font-size: $h500;
+  }
+
+  h6, .h400 {
+    font-size: $h400;
+  }
+
+  .h300 {
+    font-size: $h300;
+  }
+
+  .h200 {
+    font-size: $h200;
+  }
+
+  .h100 {
+    font-size: $h100;
+  }
+
+  p {
+    @extend .h100;
+    line-height: 1.65;
+    padding: $s500 0;
+  }
+
+  dt, dd, li {
+    @extend .h100;
+    line-height: 1.75;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-weight: 600;
+  }
+
+  code {
+    background: $color-neutral-100;
+    border-radius: $r200;
+    padding: $s100 $s300;
+  }
+
+  @include breakpoint(sm, down) {
+    h1, .h900 {
+      font-size: $h600;
+    }
+  
+    h2, .h800 {
+      font-size: $h500;
+    }
+  
+    h3, .h700 {
+      font-size: $h400;
+    }
+  
+    h4, .h600 {
+      font-size: $h300;
+    }
+  
+    h5, .h500 {
+      font-size: $h200;
+    }
+  
+    h6, .h400 {
+      font-size: $h100;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}

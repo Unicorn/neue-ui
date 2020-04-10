@@ -1,0 +1,52 @@
+/**
+  LAYOUT
+**/
+@mixin neue\_media {
+  .image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: $s700 0;
+    min-height: 30rem;
+    position: relative;
+
+    .header {
+      bottom: $s500;
+      position: absolute;
+    }
+
+    .background {
+      animation: fadeIn 3s;
+      filter: blur(10px) brightness(1) saturate(1);
+      left: 0;
+      right: 0;
+      top: 0;
+      max-width: 100%;
+      position: absolute;
+      transform: translate3d(0, 0, 0);
+      z-index: 0;
+    }
+    
+    .foreground {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 5px;
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .inner {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: $s500 $s700;
+      position: absolute;
+      z-index: 3;
+    }
+
+    &.light {
+      color: $color-primary-100;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+  }
+}

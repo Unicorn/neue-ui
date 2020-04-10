@@ -1,0 +1,433 @@
+@mixin neue\_form {
+  .button-group {
+    align-items: center;
+    display: flex;
+
+    button + button {
+      margin-left: $s500;
+    }
+  }
+
+  button {
+    color: map-get($form-input-normal, color);
+    outline: none;
+    white-space: nowrap;
+
+    &.link {
+      color: $link-color-normal;
+      font-weight: 500;
+      transition: color .2s;
+
+      &:hover, &:focus {
+        color: $link-color-hover;
+      }
+    }
+
+    &:disabled {
+      opacity: .5;
+      pointer-events: none;
+    }
+  }
+
+  label, .field .header {
+    @extend %label;
+  }
+
+  input, textarea, select {
+    background-color: transparent;
+    border: none;
+    color: map-get($form-input-normal, color);
+    font: map-get($form-input, font);
+    height: 4rem;
+    margin: 0;
+    padding: map-get($form-input, padding);
+    text-align: left;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .button {
+    align-items: center;
+    background-color: $color-primary-500;
+    border-radius: $r300;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 3px 5px rgba(0, 0, 0, 0.05);
+    color: $color-primary-100;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    letter-spacing: .08rem;
+    margin: $s200 0;
+    padding: $s300 $s700;
+    text-align: center;
+    text-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    transition: box-shadow, color .2s;
+
+    &.button-100 { font-size: $f100; padding: $s100 #{2 * $s100}; }
+    &.button-200 { font-size: $f200; padding: $s200 #{2 * $s200}; }
+    &.button-300 { font-size: $f300; padding: $s300 #{2 * $s300}; }
+    &.button-400 { font-size: $f400; padding: $s400 #{2 * $s400}; }
+    &.button-500 { font-size: $f500; padding: $s500 #{2 * $s500}; }
+    &.button-600 { font-size: $f600; padding: $s600 #{2 * $s600}; }
+    &.button-700 { font-size: $f700; padding: $s700 #{2 * $s700}; }
+    &.button-800 { font-size: $f800; padding: $s800 #{2 * $s800}; }
+    &.button-900 { font-size: $f900; padding: $s900 #{2 * $s900}; }
+
+    svg {
+      fill: currentColor;
+      height: 1.4rem;
+      padding-left: 1rem;
+      transition: fill .3s ease;
+      width: 2.4rem;
+    }
+
+    &:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+
+    &.success {
+      @include button($color-success-500);
+    }
+
+    &.warning {
+      @include button($color-warning-500);
+    }
+
+    &.error {
+      @include button($color-error-500);
+    }
+
+    &.basic {
+      background: none;
+      border: 1px solid;
+      box-shadow: none;
+      text-shadow: none;
+    }  
+  }
+
+  .actions {
+    white-space: nowrap;
+
+    .confirm {
+      font-size: $f300;
+      margin-right: $s200;
+    }
+
+    .button {
+      display: inline-block;
+    }
+
+    .button + .button {
+      margin-left: $s500;
+    }
+  }
+
+
+  //
+  // Fields
+  //
+  .field {
+    @extend %field;
+
+    &.textarea, &.text, &.email, &.password {
+      label {
+        pointer-events: none;
+      }
+    }
+
+    &.group {
+      margin-top: 1.5rem;
+
+      .header {
+        display: block;
+        font-size: 1.2rem;
+        padding: 0 0 .5rem 1rem;
+      }
+
+      .options {
+        width: fit-content;
+      }
+
+      label {
+        background-color: map-get($form-input-normal, background);
+        color: map-get($form-input-normal, color);
+        cursor: pointer;
+        display: inline-block;
+        font: map-get($form-input-normal, font);
+        margin: 0;
+        padding: 1.2rem 1.5rem;
+        transition: .3s;
+
+        input {
+          display: none;
+        }
+
+        &:hover {
+          background-color: transparentize($color-primary-500, .9);
+        }
+
+        &.active {
+          background-color: $color-primary-500;
+          color: #fff;
+        }
+      }
+    }
+
+    &.toggle {
+      @extend label;
+      cursor: pointer;
+      height: 2.6rem;
+      margin: 1rem 0 3rem;
+      padding: .7rem 0 0 7rem;
+      position: relative;
+
+      input {
+        height: 0;
+        opacity: 0;
+        width: 0;
+      }
+
+      .slider {
+        background-color: map-get($form-input-normal, background);
+        border: 1px solid $color-neutral-100;
+        border-radius: 1.3rem;
+        height: 2.6rem;
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        width: 5rem;
+        transition: .4s;
+      }
+
+      .slider:before {
+        background-color: $color-neutral-300;
+        border-radius: 100%;
+        bottom: .2rem;
+        content: ' ';
+        height: 2.2rem;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+        transition: .4s;
+        width: 2.2rem;
+      }
+
+      input:checked + .slider {
+        &:before {
+          background-color: $color-primary-500;
+          left: 2.5rem;
+        }
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px $color-primary-200;
+      }
+    }
+
+    &.select {
+      svg {
+        background: map-get($form-input-normal, background);
+        cursor: pointer;
+        fill: darken(map-get($form-input-normal, background), 30%);
+        position: absolute;
+        right: 1rem;
+        top: 1.2rem;
+        width: 2rem;
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      &:hover {
+        svg {
+          fill: $color-neutral-100;
+        }
+      }
+    }
+
+    &.multi {
+      .tags {
+        height: auto;
+
+        span {
+          background-color: $color-neutral-200;
+          border-radius: 2px;
+          color: $color-neutral-900;
+          display: block;
+          font-size: $f400;
+          line-height: 1.5em;
+          margin: $s200 0 0 0;
+          padding: $s200 $s500 $s200 $s300;
+          position: relative;
+        }
+
+        svg {
+          background-color: transparent;
+          fill: currentColor;
+          height: 2rem;
+          position: absolute;
+          right: 1rem;
+          top: .9rem;
+          width: 2rem;
+          transition: all .2s ease;
+        }
+      }
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], textarea, select {
+      @extend %input;
+
+      ~ span {
+        border-top: 2px solid $color-neutral-300;
+        bottom: 0;
+        display: block;
+        height: 0px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        transition: width 0.4s ease;
+        white-space: nowrap;
+        width: 0;
+      }
+
+      &:focus ~ span {
+        border-color: $color-neutral-100;
+        width: 100%;
+      }
+
+      &:focus + label, &:valid + label {
+        bottom: 100%;
+        font-size: 1.2rem;
+      }
+
+      &:valid ~ span {
+        border-color: $color-primary-500;
+        width: 100%;
+      }
+
+      &:invalid ~ span {
+        border-color: $color-error-500;
+        color: $color-error-500;
+      }
+
+      + label {
+        left: 1rem;
+        position: absolute;
+        bottom: .8rem;
+        transition: font-size 0.2s ease, bottom 0.2s ease;
+        z-index: 1;
+      }
+    }
+
+    &.valid {
+      input[type="text"] ~ span, input[type="email"] ~ span, input[type="password"] ~ span, textarea ~ span, select ~ span {
+        border-color: $color-primary-500;
+        width: 100%;
+      }
+    }
+
+    &.invalid {
+      input[type="text"] ~ span, input[type="email"] ~ span, input[type="password"] ~ span, textarea ~ span, select ~ span {
+        border-color: $color-error-500;
+        color: $color-error-500;
+      }
+    }
+
+    &.not-empty {
+      input[type="text"] + label, input[type="email"] + label, input[type="password"] + label, textarea + label, select + label {
+        bottom: 100%;
+        font-size: 1.2rem;
+      }
+    }
+
+    textarea {
+      transition: height .2s ease;
+
+      &:focus, &:valid {
+        height: 10rem;
+      }
+
+      ~ span {
+        bottom: 2px;
+      }
+
+      + label {
+        bottom: .8rem;
+      }
+    }
+
+    &.radio {
+      display: inline-block;
+      text-align: center;
+      margin-top: 2rem;
+
+      span {
+        color: $color-neutral-100;
+        font-size: 1.2rem;
+        display: block;
+        padding: .5rem 2rem 1rem 3rem;
+      }
+
+      input {
+        box-sizing: border-box;
+        display: block;
+        height: 20px;
+        position: absolute;
+        width: 100%;
+
+        &::after {
+          background: $color-primary-500;
+          border: 4px solid $color-primary-500;
+          border-radius: 100%;
+          color: rgba(0, 0, 0, 0.5);
+          content: ' ';
+          display: block;
+          height: 12px;
+          text-align: center;
+          transition: background-color 0.2s ease;
+          width: 12px;
+        }
+
+        &:hover {
+          ~ span {
+            color: $color-neutral-700;
+            cursor: pointer;
+          }
+
+          &::after {
+            background: $color-primary-600;
+          }
+        }
+      }
+
+      input:checked {
+        &::after {
+          background: $color-primary-500;
+          border-color: $color-neutral-300;
+          content: ' ';
+        }
+      }
+    }
+  }
+
+  @include breakpoint(sm, down) {
+    .actions {
+      justify-content: space-between;
+      width: 100%;
+
+      .button {
+        width: 100%;
+      }
+
+      .button + .button {
+        margin: $s300;
+      }
+    }
+  }
+}

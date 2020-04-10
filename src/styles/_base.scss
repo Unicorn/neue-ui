@@ -1,0 +1,31 @@
+@mixin neue\_base {
+  .padding-100 { padding: $s100; }
+  .padding-200 { padding: $s200; }
+  .padding-300 { padding: $s300; }
+  .padding-400 { padding: $s400; }
+  .padding-500 { padding: $s500; }
+  .padding-600 { padding: $s600; }
+  .padding-700 { padding: $s700; }
+  .padding-800 { padding: $s800; }
+  .padding-900 { padding: $s900; }
+
+  .shadow-100 { box-shadow: $shadow-100; }
+  .shadow-200 { box-shadow: $shadow-200; }
+  .shadow-300 { box-shadow: $shadow-300; }
+  .shadow-400 { box-shadow: $shadow-400; }
+  .shadow-500 { box-shadow: $shadow-500; }
+  .shadow-600 { box-shadow: $shadow-600; }
+  .shadow-700 { box-shadow: $shadow-700; }
+  .shadow-800 { box-shadow: $shadow-800; }
+  .shadow-900 { box-shadow: $shadow-900; }
+
+  .radius-100 { border-radius: $r100; }
+  .radius-200 { border-radius: $r200; }
+  .radius-300 { border-radius: $r300; }
+  .radius-400 { border-radius: $r400; }
+  .radius-500 { border-radius: $r500; }
+  .radius-600 { border-radius: $r600; }
+  .radius-700 { border-radius: $r700; }
+  .radius-800 { border-radius: $r800; }
+  .radius-900 { border-radius: $r900; }
+}

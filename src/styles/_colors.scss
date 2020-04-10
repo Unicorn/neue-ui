@@ -1,0 +1,31 @@
+@mixin neue\_colors {
+  .bg.neutral.c100 { background-color: $color-neutral-100; }
+  .bg.neutral.c200 { background-color: $color-neutral-200; }
+  .bg.neutral.c300 { background-color: $color-neutral-300; }
+  .bg.neutral.c400 { background-color: $color-neutral-400; }
+  .bg.neutral.c500 { background-color: $color-neutral-500; }
+  .bg.neutral.c600 { background-color: $color-neutral-600; }
+  .bg.neutral.c700 { background-color: $color-neutral-700; }
+  .bg.neutral.c800 { background-color: $color-neutral-800; }
+  .bg.neutral.c900 { background-color: $color-neutral-900; }
+
+  .bg.primary.c100 { background-color: $color-primary-100; }
+  .bg.primary.c200 { background-color: $color-primary-200; }
+  .bg.primary.c300 { background-color: $color-primary-300; }
+  .bg.primary.c400 { background-color: $color-primary-400; }
+  .bg.primary.c500 { background-color: $color-primary-500; }
+  .bg.primary.c600 { background-color: $color-primary-600; }
+  .bg.primary.c700 { background-color: $color-primary-700; }
+  .bg.primary.c800 { background-color: $color-primary-800; }
+  .bg.primary.c900 { background-color: $color-primary-900; }
+
+  .bg.secondary.c100 { background-color: $color-secondary-100; }
+  .bg.secondary.c200 { background-color: $color-secondary-200; }
+  .bg.secondary.c300 { background-color: $color-secondary-300; }
+  .bg.secondary.c400 { background-color: $color-secondary-400; }
+  .bg.secondary.c500 { background-color: $color-secondary-500; }
+  .bg.secondary.c600 { background-color: $color-secondary-600; }
+  .bg.secondary.c700 { background-color: $color-secondary-700; }
+  .bg.secondary.c800 { background-color: $color-secondary-800; }
+  .bg.secondary.c900 { background-color: $color-secondary-900; }
+}
