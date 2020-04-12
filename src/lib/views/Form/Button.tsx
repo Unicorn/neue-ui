@@ -1,10 +1,20 @@
-import React, { FC, ReactNode, ReactType, SyntheticEvent } from 'react';
+import React, { FC, ReactNode, SyntheticEvent, ElementType, ComponentType } from 'react';
 
 import { UISizeOptions, UIColorOptions } from '../../types/ui';
 import { bgColorClass } from '../../helpers/classHelper';
 
-export interface ButtonProps {
-	Element?: ReactType;
+export interface ButtonComponentProps {
+	className?: string;
+	children?: ReactNode;
+	href?: string;
+	value?: string;
+	rel?: string
+	target?: string
+	onClick?: (e: SyntheticEvent<HTMLFormElement | HTMLAnchorElement | HTMLButtonElement>) => void;
+}
+
+export interface ButtonProps extends ButtonComponentProps {
+	component?: ElementType;
 	color?: {
 		hue?: UIColorOptions;
 		weight?: UISizeOptions;
@@ -12,25 +22,23 @@ export interface ButtonProps {
 	type?: 'button' | 'link';
 	size?: UISizeOptions;
 	external?: boolean;
-	children?: ReactNode;
-	className?: string;
-	href?: string;
-	value?: string;
-	onClick?: (e: SyntheticEvent<HTMLFormElement | HTMLAnchorElement | HTMLButtonElement>) => void;
 }
 
-const Button: FC<ButtonProps> = ({ Element, className, type, color, size, external, children, ...props }) => {
+
+
+const Button: FC<ButtonProps> = ({ component, className, type, color, size, external, children, ...props }) => {
 	const classes = [type, `button-${size}`, className, bgColorClass(color)];
+	const Component = component as ComponentType<ButtonComponentProps>
 
 	return (
-		<Element className={classes.join(' ')} rel={external ? 'external' : ''} target={external ? '_blank' : ''} {...props}>
+		<Component className={classes.join(' ')} rel={external ? 'external' : ''} target={external ? '_blank' : ''} {...props}>
 			{children}
-		</Element>
+		</Component>
 	);
 };
 
 Button.defaultProps = {
-	Element: 'button',
+	component: 'button',
 	size: '500',
 	type: 'button'
 };

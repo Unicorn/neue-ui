@@ -4,8 +4,8 @@ export const bgColorClass = (color?: UIColor) => {
   const classes = ['bg'];
 
   if (color && (color.hue || color.weight)) {
-    classes.push(color.hue ?? 'neutral');
-    classes.push(`c${color.weight ?? '500'}`);
+    classes.push(color.hue || 'neutral');
+    classes.push(`c${color.weight || '500'}`);
   }
 
   return classes.join(' ');
