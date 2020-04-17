@@ -1,6 +1,6 @@
 {
   "name": "neue-ui",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "private": false,
   "description": "A React UI framework for 2020 and beyond",
   "main": "build/main/index.js",
