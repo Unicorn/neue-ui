@@ -1,6 +1,11 @@
 @import '_mixins';
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900|Open+Sans+Condensed:300,700|Open+Sans:400,600,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900|Open+Sans+Condensed:300,700|Open+Sans:400,600,700,800|Roboto+Mono&display=swap');
+
+$font-header: 'Nunito', serif !default;
+$font-body: 'Open Sans', sans-serif !default;
+$font-display: 'Open Sans Condensed', cursive !default;
+$font-mono: 'Roboto Mono', monospace !default;
 
 $color-neutral-100: #CACFE7 !default;
 $color-neutral-200: #B0B5CE !default;
@@ -90,9 +95,6 @@ $drawer-background: $color-primary-500;
 $drawer-collapsed-width: 5.5rem;
 $drawer-expanded-width: 25rem;
 
-$font-header: 'Nunito', serif !default;
-$font-body: 'Open Sans', sans-serif !default;
-$font-display: 'Open Sans Condensed', cursive !default;
 
 /**
   LAYOUT
@@ -148,7 +150,7 @@ $h500: 2.6rem !default;
 $h600: 2.8rem !default;
 $h700: 3.0rem !default;
 $h800: 3.2rem !default;
-$h900: 4.2rem !default;
+$h900: 3.4rem !default;
 
 /** 
   SPACE

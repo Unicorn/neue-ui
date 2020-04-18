@@ -6,16 +6,27 @@ export interface RegionProps {
   media?: {
     align?: 'left' | 'right'
   },
-  children?: {
+  children: {
     header?: ReactNode
     media?: ReactNode
     content?: ReactNode
   }
 }
 
-const Region = ({ id, className, children, media }: RegionProps) => {
+const defaultProps: RegionProps = {
+  children: {},
+  media: {
+    align: 'right'
+  }
+}
+
+export default ({ id, className, children, media }: RegionProps = defaultProps) => {
+  const classes = ['region', className]
+  children.media && classes.push('with-media')
+  media && media.align && classes.push(`media-align-${media.align}`)
+
   return (
-    <div id={id} className={`region ${className} ${children.media && 'with-media'} media-align-${media.align}`}>
+    <div id={id} className={classes.join(' ')}>
       {children.header && <header>{children.header}</header>}
       <div className="inner">
         {children.media && <figure>{children.media}</figure>}
@@ -24,11 +35,3 @@ const Region = ({ id, className, children, media }: RegionProps) => {
     </div>
   )
 }
-
-Region.defaultProps = {
-  media: {
-    align: 'right'
-  }
-}
-
-export default Region

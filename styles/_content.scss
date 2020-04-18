@@ -7,13 +7,7 @@
     margin: $s700 0;
     padding: $s600 0;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .header {
+    h1, h2, h3, h4, h5, h6, .header {
       margin-top: 0;
       padding-top: 0;
     }
@@ -75,9 +69,87 @@
     }
   }
 
+  .card {
+    background: #fff;
+    border-radius: $r600;
+    display: flex;
+    overflow: hidden;
+
+    &.horizontal {
+      flex-direction: row;
+    }
+
+    .details {
+      padding: $s500 $s600;
+    }
+
+    .title {
+      font-size: $f700;
+      margin: 0;
+      padding: 0;
+    }
+
+    .meta {
+      align-items: center;
+      border-top: 1px dashed $color-neutral-100;
+      display: flex;
+      margin-top: $s600;
+      padding: $s500 0 0;
+      
+      li {
+        align-items: center;
+        display: flex;
+        font-size: $f400;
+
+        + li {
+          padding-left: $s700;
+        }
+      }
+
+      svg {
+        height: $f500;
+        margin-right: $s500;
+        width: $f500;
+      }
+    }
+
+    .cta {
+      align-items: center;
+      background: $color-neutral-100;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $s500 0;
+      transition: background-color .2s;
+
+      span {
+        font-size: 0;
+      }
+
+      svg {
+        display: block;
+        fill: $color-neutral-400;
+        height: $s700;
+        transition: fill .2s;
+        width: $s700;
+
+        &.chevron {
+          transform: rotate(-90deg);
+        }
+      }
+
+      &:hover {
+        background-color: $color-primary-200;
+
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
   @include breakpoint(md, down) {
-    .region,
-    .region.media-align-right {
+    .region, .region.media-align-right {
       .inner {
         flex-direction: column;
       }

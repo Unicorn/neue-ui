@@ -3,6 +3,7 @@
     align-items: center;
     display: block;
     font-family: $font-header;
+    font-weight: 500;
     justify-content: space-between;
     line-height: 1.5;
     padding: 1em 0 .5em;
@@ -44,8 +45,10 @@
     font-size: $h100;
   }
 
-  p {
-    @extend .h100;
+  p, rt-p {
+    display: block;
+    font-size: $f500;
+    font-weight: 500;
     line-height: 1.65;
     padding: $s500 0;
   }

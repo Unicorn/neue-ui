@@ -69,16 +69,32 @@ dl, ol, ul {
   padding: $s500 0;
 }
 
+pre, code {
+  font-family: $font-mono;
+  font-size: $f500;
+  line-height: 1.5;
+}
+
+figure {
+  img {
+    max-width: 100%;
+  }
+}
+
 @mixin neue\_html {
   main, .container {
     @extend %container;
   }
 
   section.content {
-    
-
     a {
+      color: $color-primary-500;
       text-decoration: none;
+      transition: color .2s;
+
+      &:hover {
+        color: $color-primary-800;
+      }
     }
     
     dt {
@@ -89,14 +105,40 @@ dl, ol, ul {
       padding-top: $s500;
     }
 
-    pre {
+    hr {
+      background-color: $color-neutral-200;
+      border: none;
+      height: 1px;
+      margin: $s700 0;
+    }
+
+    blockquote {
+      border-left: 2px solid $color-neutral-200;
+      display: block;
+      font-family: $font-body;
+      font-size: $f500; 
+      font-weight: 500; 
+      line-height: 1.5em;
+      margin: $s500 calc(-#{$s500} - 2px);
+      padding: $s300 $s500;
+    }
+
+    pre, code, .public-DraftStyleDefault-pre {
       background-color: transparentize($color-neutral-500, 0.95);
       border-left: 2px solid $color-neutral-500;
       color: $color-neutral-600;
+      display: block;
       font-size: $s500;
       line-height: 1.5em;
       margin: 0 0 $s500 0;
       padding: $s300;
+    }
+
+    p pre, blockquote pre, q pre {
+      display: inline-block;
+      border: none;
+      margin: 0;
+      padding: 0 $s300;
     }
   }
 }
